@@ -1,0 +1,41 @@
+<md-content class="maincontent" layout-align="start center">
+  <div class="searchresults">
+    <md-card ng-repeat="hotel in hotels | orderBy:selectedSortorder" class="hotelcards">
+      <div layout="row" layout-margin>
+        <div flex="20">
+          <img ng-src="{{hotel.image}}" class="hotelimage" alt="{{hotel.name}}"/>
+        </div>        
+        <div flex="60" layout-align="start start">
+          <div layout="column">
+            <div> <span class="md-headline">{{hotel.displayname}} </span> </div>
+            <md-divider></md-divider>
+            <p> </p>
+            <div> <span class="md-subhead">Distance (km): {{hotel.distance}}  </span> </div>
+            <span ng-repeat-end></span>
+            <div ng-switch="{{hotel.thirdpartyrating}}">
+              <p> </p>
+              <div ng-switch-when="1"> <img ng-src="images/icons/Starrating-1.png" class="ratingimage"  /> </div>
+              <div ng-switch-when="2"> <img ng-src="images/icons/Starrating-2.png" class="ratingimage"  /> </div>
+              <div ng-switch-when="3"> <img ng-src="images/icons/Starrating-3.png" class="ratingimage"  /> </div>
+              <div ng-switch-when="4"> <img ng-src="images/icons/Starrating-4.png" class="ratingimage"  /> </div>
+              <div ng-switch-when="5"> <img ng-src="images/icons/Starrating-5.png" class="ratingimage"  /> </div>                                
+            </div>
+          </div>
+        </div>
+        <div flex="20" layout="row">
+          <md-divider class="vertical-divider"></md-divider>
+          <div layout="column">
+            <ul>
+              <span ng-repeat-start="deal in hotel.deals">{{deal.provider}}</span>
+              <p> </p>
+              <span>{{deal.price}}</span>
+              <p> </p>
+              <p> </p>
+              <span ng-repeat-end></span>
+            </ul>
+          </div>
+        </div>          
+      </div>
+    </md-card>
+  </div>
+</md-content>
