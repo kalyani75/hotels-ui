@@ -18,8 +18,15 @@ md-autocomplete{ font-size:18px; }
 
 .ratingimage{ width:20%; height:auto; }
 .vertical-divider {
-  border-top-width: 0;
-  border-right-width: 1px;
-  border-right-style: solid;
-  height: auto;
+  border-top-width:0;
+  border-right-width:1px;
+  border-right-style:solid;
+  height:auto;
+}
+
+.dealscontainer {
+  text-align:center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
