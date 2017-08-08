@@ -5,7 +5,7 @@
         <div flex="20">
           <img ng-src="{{hotel.image}}" class="hotelimage" alt="{{hotel.name}}"/>
         </div>        
-        <div flex="60" layout-align="start start">
+        <div flex="65" layout-align="start start">
           <div layout="column">
             <div> <span class="md-headline">{{hotel.displayname}} </span> </div>
             <md-divider></md-divider>
@@ -22,17 +22,13 @@
             </div>
           </div>
         </div>
-        <div flex="20" layout="row">
-          <md-divider class="vertical-divider"></md-divider>
-          <div layout="column">
-            <ul>
-              <span ng-repeat-start="deal in hotel.deals">{{deal.provider}}</span>
-              <p> </p>
-              <span>{{deal.price}}</span>
-              <p> </p>
-              <p> </p>
-              <span ng-repeat-end></span>
-            </ul>
+        <md-divider class="vertical-divider"></md-divider>
+        <div flex="15">
+          <div layout="column" class="dealscontainer">
+            <span ng-repeat-start="deal in hotel.deals" class="md-subhead">{{deal.agency}}</span>
+            <span class="md-body-2 md-accent">{{deal.price  | currency:"₹":0}}</span>
+            <md-divider></md-divider>
+            <span ng-repeat-end></span>
           </div>
         </div>          
       </div>
