@@ -45,7 +45,7 @@ function($scope, $mdSidenav, $http, $route, $location){
   $scope.getLocationMatches = function(text){
     text = text.toLowerCase();
                       
-    return $http.get('http://localhost:9101/hotels.com/controller/v1.0/locations/autocomplete/' + text).then(function(response) {
+    return $http.get('https://hotels-com-20170807164728186-controller.mybluemix.net/hotels.com/controller/v1.0/locations/autocomplete/' + text).then(function(response) {
       locations = response.data.locations;
       return locations;
     });
@@ -58,7 +58,7 @@ function($scope, $mdSidenav, $http, $route, $location){
   $scope.getHotelMatches = function(text){
     text = text.toLowerCase();
     
-    return $http.get('http://localhost:9101/hotels.com/controller/v1.0/hotels/autocomplete/' + text).then(function(response) {
+    return $http.get('https://hotels-com-20170807164728186-controller.mybluemix.net/hotels.com/controller/v1.0/hotels/autocomplete/' + text).then(function(response) {
       hotels = response.data.hotels;
       return hotels;
     });
@@ -68,7 +68,7 @@ function($scope, $mdSidenav, $http, $route, $location){
 app.controller('SearchresultsCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
   if (!$scope.location) return;
   
-  $http({ method: 'GET', url: 'http://localhost:9101/hotels.com/controller/v1.0/hotels/search/' + $scope.location.latitude 
+  $http({ method: 'GET', url: 'https://hotels-com-20170807164728186-controller.mybluemix.net/hotels.com/controller/v1.0/hotels/search/' + $scope.location.latitude 
    + '/' + $scope.location.longitude, params: { radius: $scope.distance }})
   .then(function successCallback(response) {
     $scope.hotels = response.data.hotelsearch;
